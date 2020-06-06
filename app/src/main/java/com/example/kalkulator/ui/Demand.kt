@@ -4,22 +4,50 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kalkulator.R
 import kotlinx.android.synthetic.main.fragment_demand.*
 
 class Demand:AppCompatActivity() {
+
+    lateinit var option: Spinner
+    val options = arrayOf("Brak aktywności fizycznej",
+        "Mała aktywność fizyczna (ćwiczenia 1-3 tygodniowo)",
+        "Średnia aktyność fizyczna (ćwiczenia 3-5 tygodniowo)",
+        "Duża aktywność fizyczna (ćwiczenia codziennie)",
+        "Bardzo duża aktywność fizyczna")
+    var optionsNumber = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_demand)
+
+        yourDemand_text.text = ""
+        demand_result.text = ""
+        option = findViewById<Spinner>(R.id.demand_dropdown)
+        option.adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, options)
+
+        option.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                print("nothing selected")
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                optionsNumber = options.get(position)
+            }
+        }
 
         val btnCalc = findViewById<Button>(R.id.button_calc_demand)
 
         btnCalc.setOnClickListener()
         {
             calculateDemand()
+            weight_demand.text?.clear()
+            height_demand.text?.clear()
+            age_demand.text?.clear()
+            yourDemand_text.text = "Twoje zapotrzebowanie:2"
         }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -78,12 +106,19 @@ class Demand:AppCompatActivity() {
         var demandResult: Double = 0.0
         var demnad: Double = 1.0
 
-        if(radio_satus_zero.isChecked) {demnad = 1.0}
-        else if (radio_satus_one.isChecked) {demnad = 1.2}
-        else if (radio_status_two.isChecked) {demnad = 1.4}
-        else if (radio_status_three.isChecked) {demnad = 1.6}
-        else if (radio_status_four.isChecked) {demnad = 1.8}
+        if(optionsNumber == options[0]) {demnad = 1.0}
+        else if (optionsNumber == options[1]) {demnad = 1.2}
+        else if (optionsNumber == options[2]) {demnad = 1.4}
+        else if (optionsNumber == options[3]) {demnad = 1.6}
+        else if (optionsNumber == options[4]) {demnad = 1.8}
         else {demnad = 2.0}
+
+//        if(radio_satus_zero.isChecked) {demnad = 1.0}
+//        else if (radio_satus_one.isChecked) {demnad = 1.2}
+//        else if (radio_status_two.isChecked) {demnad = 1.4}
+//        else if (radio_status_three.isChecked) {demnad = 1.6}
+//        else if (radio_status_four.isChecked) {demnad = 1.8}
+//        else {demnad = 2.0}
 
         if (radio_woman_demand.isChecked && weight_demand.text.toString() != "" && height_demand.text.toString() != "" && age_demand.text.toString() != "" ){
             demandw = weight_demand.text.toString()
@@ -93,7 +128,7 @@ class Demand:AppCompatActivity() {
             demandAge = Integer.parseInt(age_demand.text.toString())
             demandRes = (9.99 * demandWeigth) + (6.25 * demandHeight) - (4.92 * demandAge) -161
             demandResult = demandRes * demnad
-            demand_result.text = demandResult.toString()
+            demand_result.text = "%.0f".format(demandResult).toString() + " kcl"
         }
         else if(radio_man_demand.isChecked && weight_demand.text.toString() != "" && height_demand.text.toString() != "" && age_demand.text.toString() != ""){
             demandw = weight_demand.text.toString()
@@ -103,7 +138,7 @@ class Demand:AppCompatActivity() {
             demandAge = Integer.parseInt(age_demand.text.toString())
             demandRes = (9.99 * demandWeigth) + (6.25 * demandHeight) - (4.92 * demandAge) + 5
             demandResult = demandRes * demnad
-            demand_result.text = demandResult.toString()
+            demand_result.text = "%.0f".format(demandResult).toString() + " kcl"
         }
         else{
             Toast.makeText(this@Demand,"Proszę uzupełnić wszystkie pola", Toast.LENGTH_SHORT).show()
