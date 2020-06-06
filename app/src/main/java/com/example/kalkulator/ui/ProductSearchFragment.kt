@@ -37,7 +37,7 @@ class ProductSearchFragment : Fragment() {
         super.onStart()
         button_search_item.setOnClickListener{
             if (name_product_search?.text.toString() == "") {
-                Toast.makeText(requireContext(), "No fill textbox!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Podaj nazwę produktu!", Toast.LENGTH_SHORT).show()
             } else {
                 val response = productSearchViewModel.getDataFromAPI(name_product_search?.text.toString())
                 adapter = SearchingListAdapter(
