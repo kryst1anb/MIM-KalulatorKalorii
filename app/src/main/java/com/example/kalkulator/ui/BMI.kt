@@ -17,6 +17,9 @@ class BMI : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_bmi)
         val btnCalc = findViewById<Button>(R.id.button_calc_bmi)
+        bmi_result.text = ""
+        bmi_result_text.text = ""
+        yourBMI_text.text = ""
 
         btnCalc.setOnClickListener()
         {
@@ -79,18 +82,23 @@ class BMI : AppCompatActivity() {
 
     fun calculateBMI() {
         if (weight_bmi.text.toString() != "" && height_bmi.text.toString() != "") {
+
+            yourBMI_text.text = "Twoje BMI:"
             bmiw = weight_bmi.text.toString()
             bmiWeigth = bmiw.toDouble()
             bmih = height_bmi.text.toString()
             bmiHeight = bmih.toDouble()/100
             bmiResult = bmiWeigth/(bmiHeight*bmiHeight)
-            bmi_result.text = bmiResult.toString()
+            bmi_result.text = "%.2f".format(bmiResult).toString()
+
+            weight_bmi.text?.clear()
+            height_bmi.text?.clear()
             if(bmiResult < 18.5)
-                bmi_result_text.text = "Masz niedowagę"
+                bmi_result_text.text = "Masz niedowagę!"
             else if( bmiResult >=18.5 && bmiResult <25)
                 bmi_result_text.text = "Waga prawidłowa"
             else if( bmiResult >=25 && bmiResult <30)
-                bmi_result_text.text = "Masz nadwagę"
+                bmi_result_text.text = "Masz nadwagę!"
             else if( bmiResult > 30)
                 bmi_result_text.text = "Otyłość!"
         }
