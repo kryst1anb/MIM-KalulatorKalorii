@@ -1,123 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/bcg1">
+
+    <TextView
+        android:id="@+id/BMRInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="157dp"
+        android:layout_marginRight="157dp"
+        android:layout_marginBottom="8dp"
+        android:text="Kalkulator BMR"
+        android:textColor="#323232"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_sex_bmr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_sex_bmr"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginRight="126dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:text="Płeć"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/bmrRadio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BMRInfo"/>
 
     <RadioGroup
         android:id="@+id/bmrRadio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/text_sex_bmr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="Sex"
-            android:textAlignment="center" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/text_height_bmr"
+        app:layout_constraintTop_toBottomOf="@+id/text_sex_bmr"
+        tools:layout_editor_absoluteX="0dp">
 
         <RadioButton
             android:id="@+id/radio_man_bmr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="40dp"
+            android:buttonTint="@color/colorPrimaryDark"
             android:checked="true"
-            android:text="Man" />
+            android:text="M"
+            app:useMaterialThemeColors="true" />
 
         <RadioButton
             android:id="@+id/radio_woman_bmr"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Woman" />
+            android:buttonTint="@color/colorPrimaryDark"
+            android:text="K" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/text_weight_bmr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weight"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/weight_bmr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="Weight"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark" />
-
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_height_bmr"
-        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Height"
-        android:textAlignment="center" />
+        android:layout_marginTop="220dp"
+        android:hint="Wzrost"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/height_bmr"
-        android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/height_bmr"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:nextFocusForward="@+id/weight_bmi"
+            android:textColor="#323232"
+            android:textColorHint="#FF9800"
+            android:textColorLink="#FF9800"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_weight_bmr"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="Height"
-        android:textAlignment="center" />
+        android:layout_marginTop="25dp"
+        android:hint="Waga"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_height_bmr">
 
-    <TextView
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_bmr"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:nextFocusForward="@+id/button_calc_bmr"
+            android:textColor="#323232"
+            android:textColorHint="#FF9800"
+            android:textColorLink="#FF9800"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_age_bmr"
-        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Age"
-        android:textAlignment="center" />
+        android:layout_marginTop="25dp"
+        android:hint="Wiek"
+        app:boxBackgroundMode="outline"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_weight_bmr">
 
-    <EditText
-        android:id="@+id/age_bmr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:text="Age"
-        android:textAlignment="center"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/age_bmr"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:nextFocusForward="@+id/button_calc_bmi"
+            android:textColor="#323232"
+            android:textColorHint="#FF9800"
+            android:textColorLink="#FF9800"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/button_calc_bmr"
-        android:layout_width="match_parent"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Oblicz BMR"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_age_bmr" />
+
+    <TextView
+        android:id="@+id/yourBMR_text"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="149dp"
+        android:layout_marginLeft="149dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
+        android:gravity="center_horizontal"
+        android:text="Twoje BMR:"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bmr_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_calc_bmr" />
+
+    <TextView
+        android:id="@+id/bmr_result"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate BMR" />
+        android:layout_marginBottom="100dp"
+        android:text="BMR value"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourBMR_text" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/yourBMI_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="Twoje BMR"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/bmi_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/yourBMI_text"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

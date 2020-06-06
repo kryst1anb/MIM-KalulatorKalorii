@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kalkulator.R
 import kotlinx.android.synthetic.main.fragment_bmi.*
-import kotlinx.android.synthetic.main.fragment_bmr.bmi_result
+import kotlinx.android.synthetic.main.fragment_bmr.bmr_result
 
 class BMI : AppCompatActivity() {
 

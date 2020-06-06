@@ -17,9 +17,16 @@ class BMR : AppCompatActivity() {
 
         val btnCalc = findViewById<Button>(R.id.button_calc_bmr)
 
+        bmr_result.text=""
+        yourBMR_text.text = ""
+
         btnCalc.setOnClickListener()
         {
             calculateBMR()
+            weight_bmr.text?.clear()
+            height_bmr.text?.clear()
+            age_bmr.text?.clear()
+            yourBMR_text.text = "Twoje BMR:"
         }
     }
 
@@ -86,7 +93,7 @@ class BMR : AppCompatActivity() {
             bmrHeight = bmrh.toDouble()
             bmrAge = Integer.parseInt(age_bmr.text.toString())
             bmrResult = (9.99 * bmrWeigth) + (6.25 * bmrHeight) - (4.92 * bmrAge) + 5
-            bmi_result.text = bmrResult.toString()
+            bmr_result.text = "%.2f".format(bmrResult).toString()
         }
         else if(radio_woman_bmr.isChecked && weight_bmr.text.toString() != "" && height_bmr.text.toString() != "" && age_bmr.text.toString() != "")
         {
@@ -96,7 +103,7 @@ class BMR : AppCompatActivity() {
             bmrHeight = bmrh.toDouble()
             bmrAge = Integer.parseInt(age_bmr.text.toString())
             bmrResult = (9.99 * bmrWeigth) + (6.25 * bmrHeight) - (4.92 * bmrAge) -161
-            bmi_result.text = bmrResult.toString()
+            bmr_result.text = "%.2f".format(bmrResult).toString()
         }
         else
         {
