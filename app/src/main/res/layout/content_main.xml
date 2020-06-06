@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
-        android:text="Wybierz Opcję w prawym górnym rogu"
+        android:text="wybierz opcję w prawym górnym rogu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
