@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">kalkulator</string>
+    <string name="action_settings">Settings</string>
+    <string name="bmi17">Niedowaga: BMI \u003C 18.5 </string>
+    <string name="bmi18">Waga prawidłowa: 18.5 =\u003E BMI \u003C 25</string>
+    <string name="bmi25">Nadwaga: 25 => BMI \u003C 30</string>
+    <string name="bmi30">Otyłość: BMI \u003E 30</string>
+</resources>

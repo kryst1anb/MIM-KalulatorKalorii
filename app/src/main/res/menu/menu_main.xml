@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.kalkulator.MainActivity">
+    <item
+        android:id="@+id/action_bmi"
+        android:title="Kalkulator BMI" />
+
+    <item
+        android:id="@+id/action_bmr"
+        android:title="Kalkulator BMR" />
+
+    <item
+        android:id="@+id/action_zapotrzebowanie"
+        android:title="Zapotrzebowanie kaloryczne" />
+
+    <item
+        android:id="@+id/action_kalorie"
+        android:title="Kalorie produktów" />
+
+    <item
+        android:id="@+id/action_products"
+        android:title="Twoje produkty" />
+
+</menu>

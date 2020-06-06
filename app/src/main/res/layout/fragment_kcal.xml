@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context="com.example.kalkulator.ui.ProductSearchFragment"
+    android:usesCleartextTraffic="true">
+
+    <TextView
+        android:id="@+id/text_name_kcal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name of product"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/name_product_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name of product"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button_search_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search product" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
