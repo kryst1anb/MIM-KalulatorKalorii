@@ -1,10 +1,8 @@
 package com.example.kalkulator.api
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import com.example.kalkulatorkalorii.json.ResultProductList
 import com.example.kalkulatorkalorii.json.Result
-import com.google.gson.Gson
+import com.example.kalkulatorkalorii.json.ResultProductList
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
@@ -32,13 +30,14 @@ class apiConnect {
                 .url(url)
                 .get()
                 .addHeader("x-rapidapi-host", "nutritionix-api.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", "375c5ab2fcmsh7b1007a6516e98ep10931fjsn19eabd2048af")
+                .addHeader("x-rapidapi-key", "eaf8568fa2msh6971f27327cd80dp1ed02djsn43b91a66f71f")
                 .build()
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException?) {
                     call.cancel()
                     Log.e("ERROR: ", e.toString())
+
                 }
 
                 @Throws(IOException::class)
