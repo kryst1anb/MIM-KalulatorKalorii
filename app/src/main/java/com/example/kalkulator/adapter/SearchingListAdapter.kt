@@ -1,20 +1,20 @@
 package com.example.kalkulator.adapter
 
 import android.content.Context
-import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kalkulator.MainActivity
 import com.example.kalkulator.R
 import com.example.kalkulator.db.Product
 import com.example.kalkulator.db.ProductDB
-import com.example.kalkulatorkalorii.json.ResultProduct
+import com.example.kalkulator.json.ResultProduct
+import com.example.kalkulatorkalorii.json.*
 
-class SearchingListAdapter(val products: List<ResultProduct?>?, val context: Context, val fragment: Fragment) : RecyclerView.Adapter<SearchingListAdapter.ViewHolder>()
+class SearchingListAdapter(private val products: List<ResultProduct?>?, private val context: Context) : RecyclerView.Adapter<SearchingListAdapter.ViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(R.layout.one_item,parent,false)
@@ -24,6 +24,9 @@ class SearchingListAdapter(val products: List<ResultProduct?>?, val context: Con
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products!![position]!!
+
+        Log.e("dsaaaaa",  product.hits.toString())
+
         holder.item_name.text = product.item_name
         holder.nf_calories.text = product.nf_calories.toString()
         holder.nf_total_fat.text = product.nf_total_fat.toString()

@@ -97,7 +97,7 @@ class Demand:AppCompatActivity() {
 
 
     fun calculateDemand() {
-        var demandWeigth: Double = 0.0
+        var demandWeight: Double = 0.0
         var demandw: String = ""
         var demandHeight: Double = 0.0
         var demandh: String = ""
@@ -122,21 +122,21 @@ class Demand:AppCompatActivity() {
 
         if (radio_woman_demand.isChecked && weight_demand.text.toString() != "" && height_demand.text.toString() != "" && age_demand.text.toString() != "" ){
             demandw = weight_demand.text.toString()
-            demandWeigth = demandw.toDouble()
+            demandWeight = demandw.toDouble()
             demandh = height_demand.text.toString()
             demandHeight = demandh.toDouble()
             demandAge = Integer.parseInt(age_demand.text.toString())
-            demandRes = (9.99 * demandWeigth) + (6.25 * demandHeight) - (4.92 * demandAge) -161
+            demandRes = (9.99 * demandWeight) + (6.25 * demandHeight) - (4.92 * demandAge) -161
             demandResult = demandRes * demnad
             demand_result.text = "%.0f".format(demandResult).toString() + " kcl"
         }
         else if(radio_man_demand.isChecked && weight_demand.text.toString() != "" && height_demand.text.toString() != "" && age_demand.text.toString() != ""){
             demandw = weight_demand.text.toString()
-            demandWeigth = demandw.toDouble()
+            demandWeight = demandw.toDouble()
             demandh = height_demand.text.toString()
             demandHeight = demandh.toDouble()
             demandAge = Integer.parseInt(age_demand.text.toString())
-            demandRes = (9.99 * demandWeigth) + (6.25 * demandHeight) - (4.92 * demandAge) + 5
+            demandRes = (9.99 * demandWeight) + (6.25 * demandHeight) - (4.92 * demandAge) + 5
             demandResult = demandRes * demnad
             demand_result.text = "%.0f".format(demandResult).toString() + " kcl"
         }

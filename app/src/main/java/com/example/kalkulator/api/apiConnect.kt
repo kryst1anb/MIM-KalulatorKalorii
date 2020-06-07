@@ -2,6 +2,7 @@ package com.example.kalkulator.api
 
 import android.util.Log
 import com.example.kalkulatorkalorii.json.Result
+import com.example.kalkulatorkalorii.json.ResultProduct
 import com.example.kalkulatorkalorii.json.ResultProductList
 import com.google.gson.GsonBuilder
 import okhttp3.*
@@ -22,7 +23,9 @@ class apiConnect {
         for(i in 0 until tableSearch.size-1)
             url += tableSearch[i] + "%20"
         url += tableSearch[tableSearch.size-1]
+       // url += "?fields=item_name%252Cnf_calories%252Cnf_total_fat%252Cnf_total_carbohydrate%252Cnf_protein%252Cnf_serving_weight_grams"
 
+        //Log.e("------------------", url)
         try {
 
             val client = OkHttpClient()
@@ -43,12 +46,16 @@ class apiConnect {
                 @Throws(IOException::class)
                 override fun onResponse(call: Call?, response: Response) {
                     val myResponse = response.body()?.string()
-                    var gson = GsonBuilder()
+                    Log.e("myResponse-------------" ,myResponse.toString())
+                    val gson = GsonBuilder()
                         .setLenient()
                         .create()
+                   // Log.e("gson-------------------" ,gson.toString())
                     val data = gson.fromJson(myResponse, Result::class.java)
 
-                    productsList.listItems = data.results
+//                    Log.e("data-------------------" ,data.hits.toString())
+
+                    productsList.listItems = data.result
                 }
             })
         } catch (e: IOException) {

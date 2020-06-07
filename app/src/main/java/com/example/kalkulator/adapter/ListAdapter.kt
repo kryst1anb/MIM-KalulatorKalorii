@@ -17,9 +17,9 @@ import com.example.kalkulator.R
 import com.example.kalkulator.db.Product
 import com.example.kalkulator.db.ProductDB
 
-class ListAdapter(val products: List<Product>, val context: Context, val fragment: Fragment): RecyclerView.Adapter<ListAdapter.ViewHolder>()
+class ListAdapter(private val products: List<Product>, val context: Context, fragment: Fragment): RecyclerView.Adapter<ListAdapter.ViewHolder>()
 {
-
+    private var positionID = 0
     private lateinit var product : Product
 
     inner class DeleteTask : AsyncTask<Void, Void, String>()
@@ -27,13 +27,13 @@ class ListAdapter(val products: List<Product>, val context: Context, val fragmen
         override fun doInBackground(vararg params: Void?): String {
             try {
                 val db = ProductDB.getInstance(context)
-                val id = intent.getIntExtra("id", -1)
-                product = db.productDAO().getProduct(id)
+                //val id = intent.getIntExtra("id", -1)
+                product = db.productDAO().getProduct(positionID)
                 db.productDAO().deleteProduct(product)
             }catch (e: Exception) {
-                Log.e("Error", e.localizedMessage)
+                Log.e("Error",e.localizedMessage!!)
             }
-            return "Recipe deleted"
+            return "Product deleted"
         }
 
     }
@@ -46,7 +46,8 @@ class ListAdapter(val products: List<Product>, val context: Context, val fragmen
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val product = products!![position]!!
+        val product = products[position]
+        positionID = product.id!!
         holder.item_name.text = product.name
         holder.nf_calories.text = product.kcal.toString()
         holder.nf_total_fat.text = product.fat.toString()
@@ -55,13 +56,12 @@ class ListAdapter(val products: List<Product>, val context: Context, val fragmen
 
         holder.buttonDelProduct.setOnClickListener {
             val deleteAlert = AlertDialog.Builder(context)
-            deleteAlert.setTitle("Delete recipe")
-            deleteAlert.setMessage("Are you sure you want to delete this recipe?")
+            deleteAlert.setTitle("Delete product")
+            deleteAlert.setMessage("Are you sure you want to delete this product?")
 
             deleteAlert.setPositiveButton(android.R.string.yes) { _,_ ->
                 DeleteTask().execute()
-                Toast.makeText(context,
-                    "Recipe deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Product deleted", Toast.LENGTH_SHORT).show()
             }
 
             deleteAlert.setNegativeButton("Cancel") { _, _ -> }
