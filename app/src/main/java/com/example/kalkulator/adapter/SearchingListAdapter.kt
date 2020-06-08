@@ -1,6 +1,7 @@
 package com.example.kalkulator.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +12,12 @@ import com.example.kalkulator.R
 import com.example.kalkulator.db.Product
 import com.example.kalkulator.db.ProductDB
 import com.example.kalkulatorkalorii.json.ResultProductList
+import kotlin.math.log
 
 class SearchingListAdapter(val products: ResultProductList, val context: Context) : RecyclerView.Adapter<SearchingListAdapter.ViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(R.layout.one_item,parent,false)
-
         return ViewHolder(v)
     }
 
@@ -41,9 +42,7 @@ class SearchingListAdapter(val products: ResultProductList, val context: Context
 
             }.start()
             Toast.makeText(context, "Product added", Toast.LENGTH_SHORT).show()
-
         }
-
     }
 
     class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
