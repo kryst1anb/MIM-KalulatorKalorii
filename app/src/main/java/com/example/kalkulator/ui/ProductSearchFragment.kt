@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kalkulator.R
 import com.example.kalkulator.adapter.SearchingListAdapter
-import com.example.kalkulatorkalorii.json.ResultProduct
 import kotlinx.android.synthetic.main.fragment_kcal.*
-import kotlinx.android.synthetic.main.one_item.*
 
 class ProductSearchFragment : Fragment() {
 
@@ -40,28 +38,10 @@ class ProductSearchFragment : Fragment() {
             if (name_product_search?.text.toString() == "") {
                 Toast.makeText(requireContext(), "Podaj nazwę produktu!", Toast.LENGTH_SHORT).show()
             } else {
-
-//               val response = productSearchViewModel.getDataFromAPI(name_product_search?.text.toString())
-//                adapter = SearchingListAdapter(
-//                    response.listItems,
-//                    requireContext(),this)
-//                search_list.adapter = adapter
-//                search_list.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-//
-
-                val list = mutableListOf<ResultProduct>()
-                val product1 = ResultProduct("egg", 100.toDouble(), 10.toDouble(), 10.toDouble(),10.toDouble())
-                val product2 = ResultProduct("egg with meat", 200.toDouble(), 20.toDouble(), 20.toDouble(),20.toDouble())
-                list.add(product1)
-                list.add(product2)
-
-                adapter = SearchingListAdapter(
-                    list,
-                    requireContext(),this
-                )
+                val response = productSearchViewModel.getDataFromAPI(name_product_search?.text.toString())
+                adapter = SearchingListAdapter(response, requireContext())
                 search_list.adapter = adapter
                 search_list.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-
             }
         }
 

@@ -16,28 +16,26 @@ class apiConnect {
     fun apiConnection(typedSearch: String): ResultProductList {
 
         val tableSearch = typedSearch.split(" ".toRegex())
-
-        var url ="https://nutritionix-api.p.rapidapi.com/v1_1/search/"
-
+        var url ="https://api.nutritionix.com/v1_1/search/"
         for(i in 0 until tableSearch.size-1)
-            url += tableSearch[i] + "%20"
+        {
+            url += tableSearch[i] + "%252C"
+        }
         url += tableSearch[tableSearch.size-1]
-        //url += "?fields=item_name%252Cnf_calories%252Cnf_total_fat%252Cnf_total_carbohydrate%252Cnf_protein%252Cnf_serving_weight_grams"
+        url += "?fields=brand_name,item_name,item_id,brand_id,nf_calories,nf_total_fat,nf_total_carbohydrate,nf_protein,nf_serving_weight_grams?&appId=b6c40349&appKey=3fdd6f13ef70132033e1102628b62f85"
+
         try {
 
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(url)
                 .get()
-                .addHeader("x-rapidapi-host", "nutritionix-api.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", "eaf8568fa2msh6971f27327cd80dp1ed02djsn43b91a66f71f")
                 .build()
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException?) {
                     call.cancel()
                     Log.e("ERROR: ", e.toString())
-
                 }
 
                 @Throws(IOException::class)
@@ -47,12 +45,7 @@ class apiConnect {
                         .setLenient()
                         .create()
                     val data = gson.fromJson(myResponse, Result::class.java)
-
-                    productsList.listItems = data.results
-
-//                    val list = listOf<Result>(data)
-//                    productsList.listItems = listOf(Result(data.totalHits,data.maxScore,data.hits))
-
+                    productsList.listItems = data
                 }
             })
         } catch (e: IOException) {

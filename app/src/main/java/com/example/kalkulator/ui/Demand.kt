@@ -26,8 +26,8 @@ class Demand:AppCompatActivity() {
 
         yourDemand_text.text = ""
         demand_result.text = ""
-        option = findViewById<Spinner>(R.id.demand_dropdown)
-        option.adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, options)
+        option = findViewById(R.id.demand_dropdown)
+        option.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, options)
 
         option.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
