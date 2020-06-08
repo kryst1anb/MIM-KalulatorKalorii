@@ -113,13 +113,6 @@ class Demand:AppCompatActivity() {
         else if (optionsNumber == options[4]) {demnad = 1.8}
         else {demnad = 2.0}
 
-//        if(radio_satus_zero.isChecked) {demnad = 1.0}
-//        else if (radio_satus_one.isChecked) {demnad = 1.2}
-//        else if (radio_status_two.isChecked) {demnad = 1.4}
-//        else if (radio_status_three.isChecked) {demnad = 1.6}
-//        else if (radio_status_four.isChecked) {demnad = 1.8}
-//        else {demnad = 2.0}
-
         if (radio_woman_demand.isChecked && weight_demand.text.toString() != "" && height_demand.text.toString() != "" && age_demand.text.toString() != "" ){
             demandw = weight_demand.text.toString()
             demandWeight = demandw.toDouble()

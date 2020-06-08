@@ -74,7 +74,7 @@ class BMI : AppCompatActivity() {
         startActivity(intent)
     }
 
-    var bmiWeigth: Double = 0.0
+    var bmiWeight: Double = 0.0
     var bmiw: String = ""
     var bmiHeight: Double = 0.0
     var bmih: String = ""
@@ -85,10 +85,10 @@ class BMI : AppCompatActivity() {
 
             yourBMI_text.text = "Twoje BMI:"
             bmiw = weight_bmi.text.toString()
-            bmiWeigth = bmiw.toDouble()
+            bmiWeight = bmiw.toDouble()
             bmih = height_bmi.text.toString()
             bmiHeight = bmih.toDouble()/100
-            bmiResult = bmiWeigth/(bmiHeight*bmiHeight)
+            bmiResult = bmiWeight/(bmiHeight*bmiHeight)
             bmi_result.text = "%.2f".format(bmiResult).toString()
 
             weight_bmi.text?.clear()
