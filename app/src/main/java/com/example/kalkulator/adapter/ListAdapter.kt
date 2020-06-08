@@ -53,7 +53,7 @@ class ListAdapter(val products: List<Product>, val context: Context, val fragmen
         holder.buttonDelProduct.setOnClickListener {
             val deleteAlert = AlertDialog.Builder(context)
             deleteAlert.setTitle("Delete product")
-            deleteAlert.setMessage("Are you sure you want to delete this product? ${product.id!!}")
+            deleteAlert.setMessage("Are you sure you want to delete this product?")
 
             deleteAlert.setPositiveButton(android.R.string.yes) { _,_ ->
                 DeleteTask(product.id!!).execute()

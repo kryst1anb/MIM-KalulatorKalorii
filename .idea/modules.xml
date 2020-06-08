@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MIM-KalulatorKalorii-8710db9b6617f0b03c8fc243beb2aa35a304b21e-kalkulator.iml" filepath="$PROJECT_DIR$/.idea/modules/MIM-KalulatorKalorii-8710db9b6617f0b03c8fc243beb2aa35a304b21e-kalkulator.iml" group="kalkulator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MIM-KalulatorKalorii-kalkulator.iml" filepath="$PROJECT_DIR$/.idea/modules/MIM-KalulatorKalorii-kalkulator.iml" group="kalkulator" />
       <module fileurl="file://$PROJECT_DIR$/MIM-KalulatorKalorii-master-kalkulator.iml" filepath="$PROJECT_DIR$/MIM-KalulatorKalorii-master-kalkulator.iml" group="kalkulator" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/kalkulator.iml" filepath="$PROJECT_DIR$/kalkulator.iml" />

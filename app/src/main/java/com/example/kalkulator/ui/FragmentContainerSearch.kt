@@ -14,6 +14,7 @@ class FragmentContainerSearch : AppCompatActivity() {
 
         val fragmentMainList = ProductSearchFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerSearch,fragmentMainList).commit()
+        getWindow().setBackgroundDrawableResource(R.drawable.bcg1);
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

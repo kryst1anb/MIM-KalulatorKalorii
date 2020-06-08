@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardElevation="0dp"
+    android:layout_marginTop="10dp"
+    app:cardBackgroundColor="@android:color/transparent">
 
     <LinearLayout
         android:id="@+id/one_item"
@@ -12,20 +17,23 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="542dp"
-            android:layout_height="match_parent"
+            android:layout_width="532dp"
+            android:layout_height="95dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="match_parent"
-                android:layout_height="18dp"
+                android:layout_height="25dp"
+                android:paddingLeft="55dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal|center_vertical"
                 android:textAlignment="center"
                 android:textColor="#3d3345"
-                android:textSize="14sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="egg" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,7 +47,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="FAT" />
+                    android:text="FAT"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/text_protein"
@@ -47,7 +56,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="PROTEIN" />
+                    android:text="PROTEIN"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/text_carbo"
@@ -55,7 +65,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="CARBS" />
+                    android:text="CARBS"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/text_kcal"
@@ -63,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="KCAL" />
+                    android:text="KCAL"
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,10 +118,14 @@
         </LinearLayout>
 
         <Button
+            android:backgroundTint="#323232"
             android:id="@+id/add_item"
-            android:layout_width="665dp"
-            android:layout_height="78dp"
+            android:layout_width="605dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="0dp"
             android:layout_weight="3"
-            android:text="Add" />
+            android:drawableRight="@drawable/ic2_baseline_add_circle_24"
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

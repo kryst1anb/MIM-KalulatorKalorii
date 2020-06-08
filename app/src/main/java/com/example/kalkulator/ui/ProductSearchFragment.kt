@@ -50,8 +50,8 @@ class ProductSearchFragment : Fragment() {
 //
 
                 val list = mutableListOf<ResultProduct>()
-                val product1 = ResultProduct("1", 100.toDouble(), 10.toDouble(), 10.toDouble(),10.toDouble())
-                val product2 = ResultProduct("2", 200.toDouble(), 20.toDouble(), 20.toDouble(),20.toDouble())
+                val product1 = ResultProduct("egg", 100.toDouble(), 10.toDouble(), 10.toDouble(),10.toDouble())
+                val product2 = ResultProduct("egg with meat", 200.toDouble(), 20.toDouble(), 20.toDouble(),20.toDouble())
                 list.add(product1)
                 list.add(product2)
 
